@@ -1,8 +1,9 @@
+//Marlon Sbardelatti
+
 public class Vetor {
     private Produto[] produtos;
 
     public Vetor() {
-//        this.produtos = new Produto[0];
         setProdutos(new Produto[0]);
     }
 
