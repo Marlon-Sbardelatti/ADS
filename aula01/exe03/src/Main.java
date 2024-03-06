@@ -1,4 +1,5 @@
 //Marlon Sbardelatti
+
 import java.util.Scanner;
 
 public class Main {
@@ -14,7 +15,7 @@ public class Main {
         System.out.println("(1) - Cadastrar\n(2) - Listar\n(3) - Pesquisar\n(4) - Alterar\n(5) - Remover\n(6) - Sair");
         int res = kb.nextInt();
         while (res != 6) {
-            switch (res){
+            switch (res) {
                 case 1:
                     System.out.println("Nome do produto: ");
                     String nomeProduto = kb.next();
@@ -29,7 +30,17 @@ public class Main {
                 case 3:
                     System.out.println("Digite o termo de pesquisa(Non case-sensitive): ");
                     String termo = kb.next();
-                    System.out.println('\n' + v.pesquisa(termo));
+                    Produto[] result = v.pesquisa(termo);
+                    if (result[0] != null) {
+                        System.out.println("Produtos com o termo " + termo + ":" + '\n');
+                        for (Produto r : result){
+                            if (r != null){
+                                System.out.println(r.toString() + '\n');
+                            }
+                        }
+                        break;
+                    }
+                    System.out.println("Termo não encontrado.");
                     break;
                 case 4:
                     System.out.println("Digite o nome do produto:");
@@ -38,7 +49,7 @@ public class Main {
                     String novoNome = kb.next();
                     System.out.println("Novo valor: ");
                     double novoValor = kb.nextDouble();
-                    if (v.alterar(nomeProdutoAlterado, novoNome, novoValor)){
+                    if (v.alterar(nomeProdutoAlterado, novoNome, novoValor)) {
                         System.out.println("Produto alterado com sucesso!");
                         break;
                     }
@@ -47,7 +58,7 @@ public class Main {
                 case 5:
                     System.out.println("Digite o nome do produto:");
                     String nomeDeletar = kb.next();
-                    if (v.deletar(nomeDeletar)){
+                    if (v.deletar(nomeDeletar)) {
                         System.out.println("Produto deletado!");
                         break;
                     }

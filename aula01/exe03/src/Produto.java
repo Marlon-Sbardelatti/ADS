@@ -13,14 +13,21 @@ public class Produto {
     }
 
     public void setNome(String nome) {
+        if (nome == null || nome.isEmpty()){
+            throw new IllegalArgumentException("Nome não pode ser nulo ou vazio.");
+        }
         this.nome = nome;
     }
+
 
     public Double getValor() {
         return valor;
     }
 
     public void setValor(Double valor) {
+        if (valor == null || valor < 0){
+            throw new IllegalArgumentException("Valor não pode ser nulo ou menor do que zero.");
+        }
         this.valor = valor;
     }
 

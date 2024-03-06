@@ -38,16 +38,17 @@ public class Vetor {
         return dados;
     }
 
-    public String pesquisa(String termo) {
-        String dados = "Produtos com o termo: " + termo + '\n';
-
+    public Produto[] pesquisa(String termo) {
+        Produto[] produtos = new Produto[getProdutos().length];
+        int idx = 0;
         for (Produto p : getProdutos()) {
             if (p.getNome().toLowerCase().contains(termo.toLowerCase())) {
-                dados += p.toString() + '\n';
+               produtos[idx] = p;
+               idx++;
             }
         }
 
-        return dados;
+        return produtos;
     }
 
     public boolean alterar(String nomeAntigo, String novoNome, double novoValor) {
