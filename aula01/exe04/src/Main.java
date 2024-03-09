@@ -41,6 +41,9 @@ public class Main {
     public boolean cadastrar(Scanner kb) {
         System.out.println("Digite o nome: ");
         String nome = kb.next();
+        if (pessoas.contains(nome)){
+           return false;
+        }
         return pessoas.add(nome);
     }
 
