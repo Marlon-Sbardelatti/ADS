@@ -34,6 +34,9 @@ public class Main {
                         System.out.println("Nao foi possivel remover o numero");
                     }
                     break;
+                default:
+                    System.out.println("Numero invalido.");
+                    break;
             }
 
             System.out.println("\n1 - Cadastrar\n2 - Listar\n3 - Alterar\n4 - Remover\n5 - Sair");
@@ -73,6 +76,9 @@ public class Main {
         return true;
     }
     public boolean remover(String[] nomes, Scanner kb){
+        for (int i = 0; i < nomes.length && nomes[i] != null;  i++) {
+            System.out.println(nomes[i]);
+        }
         System.out.println("Digite o index: ");
         int idx = kb.nextInt();
 
