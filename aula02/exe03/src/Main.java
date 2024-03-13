@@ -22,7 +22,7 @@ public class Main {
                     listar(list);
                     break;
                 case 3:
-                    pesquisaSegmento(list, kb);
+                    pesquisaSegmento(list);
                     break;
                 case 4:
                     alterar(list, kb);
@@ -60,10 +60,29 @@ public class Main {
     public void pesquisaSegmento(List<Produto> list) {
         int total = 0;
         boolean found = false;
+        List<String> segs = new ArrayList<String>();
+
         for (Produto p : list) {
+            if (!segs.contains(p.getSegmento())) {
+                segs.add(p.getSegmento());
+            }
         }
 
+        String dados = "Segmentos:\n";
 
+        for (String s : segs) {
+            int count = 0;
+            String dadosPorSeg = s + ":\n";
+            for (Produto p : list) {
+                if (s.equals(p.getSegmento())) {
+                    dadosPorSeg += p.toString() + "\n";
+                    count++;
+                }
+            }
+            dados += "Total: " + count + "\n" + dadosPorSeg + '\n';
+        }
+
+        System.out.println(dados);
     }
 
     public void alterar(List<Produto> list, Scanner kb) {
