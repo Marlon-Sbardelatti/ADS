@@ -22,7 +22,11 @@ public class Main {
                     listar(list);
                     break;
                 case 3:
+<<<<<<< HEAD
                     pesquisaSegmento(list, kb);
+=======
+                    pesquisaSegmento(list);
+>>>>>>> 2d731af29e9291d2e9f27625e64fb88ed166c531
                     break;
                 case 4:
                     alterar(list, kb);
@@ -60,10 +64,36 @@ public class Main {
     public void pesquisaSegmento(List<Produto> list) {
         int total = 0;
         boolean found = false;
+<<<<<<< HEAD
         for (Produto p : list) {
         }
 
 
+=======
+        List<String> segs = new ArrayList<String>();
+
+        for (Produto p : list) {
+            if (!segs.contains(p.getSegmento())) {
+                segs.add(p.getSegmento());
+            }
+        }
+
+        String dados = "Segmentos:\n";
+
+        for (String s : segs) {
+            int count = 0;
+            String dadosPorSeg = s + ":\n";
+            for (Produto p : list) {
+                if (s.equals(p.getSegmento())) {
+                    dadosPorSeg += p.toString() + "\n";
+                    count++;
+                }
+            }
+            dados += "Total: " + count + "\n" + dadosPorSeg + '\n';
+        }
+
+        System.out.println(dados);
+>>>>>>> 2d731af29e9291d2e9f27625e64fb88ed166c531
     }
 
     public void alterar(List<Produto> list, Scanner kb) {
@@ -106,4 +136,8 @@ public class Main {
             System.out.println("Produto não localizado.");
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 2d731af29e9291d2e9f27625e64fb88ed166c531

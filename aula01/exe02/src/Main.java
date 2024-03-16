@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class Main {
     public int index = 0;
+
     public static void main(String[] args) {
         new Main();
     }
@@ -13,25 +14,26 @@ public class Main {
         String[] nomes = new String[10];
         int res = kb.nextInt();
         while (res != 5) {
-            switch (res){
+            switch (res) {
                 case 1:
-                    if (cadastrar(nomes, kb)){
-                        System.out.println("Nome adicionado");
-                    }else {
-                        System.out.println("Nao foi possivel adicionar o nome");
+                    if (cadastrar(nomes, kb)) {
+                        System.out.println("Nome adicionado!");
+                    } else {
+                        System.out.println("Não foi possível adicionar o nome.");
                     }
                     break;
                 case 2:
+                    System.out.println('\n');
                     listarTodos(nomes);
                     break;
                 case 3:
                     alterar(nomes, kb);
                     break;
                 case 4:
-                    if (remover(nomes, kb)){
-                        System.out.println("Numero removido com sucesso");
-                    }else {
-                        System.out.println("Nao foi possivel remover o numero");
+                    if (remover(nomes, kb)) {
+                        System.out.println("Número removido com sucesso!");
+                    } else {
+                        System.out.println("Não foi possível remover o nome.");
                     }
                     break;
                 default:
@@ -45,7 +47,7 @@ public class Main {
     }
 
     public boolean cadastrar(String[] nomes, Scanner kb) {
-        if (index >= nomes.length){
+        if (index >= nomes.length) {
             return false;
         }
         System.out.println("Digite um nome: ");
@@ -57,36 +59,47 @@ public class Main {
 
 
     public void listarTodos(String[] nomes) {
-        for (int i = 0; i < nomes.length && nomes[i] != null;  i++) {
+        for (int i = 0; i < nomes.length && nomes[i] != null; i++) {
             System.out.println(nomes[i]);
         }
     }
 
-    public boolean alterar(String[] nomes, Scanner kb){
-        for (int i = 0; i < nomes.length && nomes[i] != null;  i++) {
+    public boolean alterar(String[] nomes, Scanner kb) {
+        for (int i = 0; i < nomes.length && nomes[i] != null; i++) {
             System.out.println(i + " - " + nomes[i]);
         }
 
         System.out.println("Digite o index: ");
         int idx = kb.nextInt();
+        if (idx > index) {
+            return false;
+        }
         System.out.println("Digite o novo nome: ");
-        String novoNome =  kb.next();
+        String novoNome = kb.next();
 
         nomes[idx] = novoNome;
         return true;
     }
+<<<<<<< HEAD
     public boolean remover(String[] nomes, Scanner kb){
         for (int i = 0; i < nomes.length && nomes[i] != null;  i++) {
             System.out.println(nomes[i]);
         }
+=======
+
+    public boolean remover(String[] nomes, Scanner kb) {
+>>>>>>> 2d731af29e9291d2e9f27625e64fb88ed166c531
         System.out.println("Digite o index: ");
         int idx = kb.nextInt();
 
-        if (nomes[idx] == null){
+        if (idx > 9) {
+            return false;
+        }
+        if (nomes[idx] == null) {
             return false;
         }
         for (int i = idx; i < nomes.length - 1; i++) {
-           nomes[i] = nomes[i + 1];
+            nomes[i] = nomes[i + 1];
         }
         index--;
         nomes[index] = null;
