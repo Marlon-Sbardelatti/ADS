@@ -80,15 +80,12 @@ public class Main {
         nomes[idx] = novoNome;
         return true;
     }
-<<<<<<< HEAD
     public boolean remover(String[] nomes, Scanner kb){
         for (int i = 0; i < nomes.length && nomes[i] != null;  i++) {
             System.out.println(nomes[i]);
         }
-=======
 
     public boolean remover(String[] nomes, Scanner kb) {
->>>>>>> 2d731af29e9291d2e9f27625e64fb88ed166c531
         System.out.println("Digite o index: ");
         int idx = kb.nextInt();
 
