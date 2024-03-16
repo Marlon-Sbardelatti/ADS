@@ -116,9 +116,12 @@ public class Main {
 
         for (Produto p : list) {
             if (p.getNome().equals(nome)) {
+                System.out.println(p.getNome());
+                System.out.println(nome);
                 list.remove(p);
                 found = true;
                 System.out.println("Produto removido com sucesso!");
+                break;
             }
         }
 
