@@ -13,4 +13,3 @@ Ex: Renomear usarios
 ## HashMap
 É uma estrutura de dados que armazena pares de chave-valor, onde cada chave é única. Uma estrutura de dados que armazena pares de chave-valor, onde cada chave é única. Uma estrutura de dados que armazena pares de chave-valor, onde cada chave é única. 
 Ex: Registrar livros por ISBN
-
