@@ -82,10 +82,9 @@ public class Main {
     }
     public boolean remover(String[] nomes, Scanner kb){
         for (int i = 0; i < nomes.length && nomes[i] != null;  i++) {
-            System.out.println(nomes[i]);
+            System.out.println(i + " " + nomes[i]);
         }
 
-    public boolean remover(String[] nomes, Scanner kb) {
         System.out.println("Digite o index: ");
         int idx = kb.nextInt();
 
