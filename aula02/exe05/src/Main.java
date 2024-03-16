@@ -12,10 +12,10 @@ public class Main {
         Scanner kb = new Scanner(System.in);
         Map<String, Aluno> alunos = new HashMap<String, Aluno>();
 
-        System.out.println("(1) - Cadastrar\n(2) - Listar\n(3) - Alterar\n(4) - Remover\n(5) - Finalizar\n");
+        System.out.println("(1) - Cadastrar\n(2) - Listar\n(3) - Alterar\n(4) - Remover\n(5) - Verificar idade\n(6) - Finalizar\n");
         int res = kb.nextInt();
 
-        while (res != 5) {
+        while (res != 6) {
             switch (res) {
                 case 1:
                     cadastrar(kb, alunos);
@@ -28,10 +28,12 @@ public class Main {
                     break;
                 case 4:
                     remover(alunos, kb);
+                case 5:
+                    verificarIdade(alunos);
                     break;
             }
 
-            System.out.println("(1) - Cadastrar\n(2) - Listar\n(3) - Alterar\n(4) - Remover\n(5) - Finalizar\n");
+            System.out.println("\n(1) - Cadastrar\n(2) - Listar\n(3) - Alterar\n(4) - Remover\n(5) - Verificar idade\n(6) - Finalizar\n");
             res = kb.nextInt();
         }
         kb.close();
@@ -86,5 +88,16 @@ public class Main {
             System.out.println("Aluno não encontrado.");
         }
 
+    }
+
+    public void verificarIdade(Map<String, Aluno> alunos){
+        String dados = "";
+       for (Aluno a : alunos.values()){
+           if (a.getIdade() >= 18){
+               dados += a.toString() + '\n';
+           }
+       }
+
+        System.out.println("Alunos com mais de 18 anos: \n" + dados);
     }
 }
